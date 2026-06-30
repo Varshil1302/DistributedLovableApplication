@@ -9,10 +9,10 @@ import java.util.Collection;
 import java.util.List;
 
 public record Userdto(
-        String username,
         Long id,
-        String password,
-        String name
+        String username,
+        String name,
+        String password
 ) implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
