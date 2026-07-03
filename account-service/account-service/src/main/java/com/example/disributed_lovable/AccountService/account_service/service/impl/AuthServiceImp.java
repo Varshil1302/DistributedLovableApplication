@@ -14,6 +14,7 @@ import com.example.disributed_lovable.CommonLib.common_lib.security.JwtService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true,level = AccessLevel.PRIVATE)
+@Slf4j
 public class AuthServiceImp implements AuthService
 {
 
@@ -35,6 +37,7 @@ public class AuthServiceImp implements AuthService
         boolean isExists=userRepository.existsByEmail(loginRequest.username());
         if(!isExists) throw new BadRequestException("User is not exsits now...");
         User user=userRepository.findByEmail(loginRequest.username()).orElse(null);
+        log.info("User email is::"+ user.getEmail());
         boolean isPassMatch= BCrypt.checkpw(loginRequest.password(),user.getPasswordHash());
         if(!isPassMatch) throw  new BadRequestException("Password mismatch");
         String jwtToken=jwtService.generateJWT(userMapper.toUserDto(user));
