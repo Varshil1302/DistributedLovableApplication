@@ -5,7 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Set;
 
-import static com.example.demo.enums.ProjectPermission.*;
+import static com.example.disributed_lovable.CommonLib.common_lib.enums.ProjectPermission.*;
 
 @RequiredArgsConstructor
 @Getter

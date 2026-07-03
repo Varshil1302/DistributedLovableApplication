@@ -5,6 +5,7 @@ import com.example.disributed_lovable.CommonLib.common_lib.dto.Userdto;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.core.Authentication;
@@ -17,9 +18,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 @Service
+@Slf4j
 public class JwtService
 {
-    @Value("${jwt.secreateKey}")
+    @Value("${jwt.secretKey}")
     private String secreateKey;
 
     private SecretKey secretKey()
@@ -29,14 +31,18 @@ public class JwtService
 
     public  String generateJWT(Userdto user)
     {
-        return Jwts.builder()
-                .claim("email",user.getUsername())
+
+        String token = Jwts.builder()
+                .claim("username",user.getUsername())
                 .claim("name",user.name())
                 .subject(user.id().toString())
                 .signWith(secretKey())
                 .issuedAt(new Date())
                 .expiration(new Date(System.currentTimeMillis()+1000*60*60))
                 .compact();
+
+        log.info("Token::::"+token);
+        return token;
     }
 
     public JwtUserPrincipal validateToken(String jwtToken)
