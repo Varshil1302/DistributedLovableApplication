@@ -6,8 +6,10 @@ import com.example.disributed_lovable.CommonLib.common_lib.dto.Userdto;
 import com.example.disributed_lovable.CommonLib.common_lib.error.ResourceNotFoundException;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+@Slf4j
 @RestController
 @RequestMapping("/internal/v1")
 @RequiredArgsConstructor
@@ -27,8 +29,10 @@ public class InternalAccountController
     @GetMapping("/user/by-email")
     public Userdto getUserByEmail(@RequestParam String email)
     {
-        return userRepository.findByUsernameIgnoreCase(email)
-                .map(userMapper::toUserDto).orElseThrow(()->new ResourceNotFoundException("User is Not Availble for respective email::"+email));
+        log.info("Email is ::"+email);
+        return userRepository.findByEmailIgnoreCase(email)
+                .map(userMapper::toUserDto)
+                .orElseThrow(()->new ResourceNotFoundException("User is Not Availble for respective email::"+email));
     }
 
 }

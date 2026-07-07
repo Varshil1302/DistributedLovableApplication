@@ -2,15 +2,15 @@ package com.example.disributed_lovable.WorkspaceService.workspace_service.contro
 
 
 import com.example.disributed_lovable.CommonLib.common_lib.security.JwtService;
-import com.example.disributed_lovable.WorkspaceService.workspace_service.dto.project.FileContentResponse;
-import com.example.disributed_lovable.WorkspaceService.workspace_service.dto.project.FileNodeResponse;
+import com.example.disributed_lovable.CommonLib.common_lib.dto.FileContentResponse;
+import com.example.disributed_lovable.CommonLib.common_lib.dto.FileNodeResponse;
 import com.example.disributed_lovable.WorkspaceService.workspace_service.service.ProjectFileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/projects/{projectId}/files")
+@RequestMapping("/projects/{projectId}/files")
 @RequiredArgsConstructor
 public class FilesController
 {

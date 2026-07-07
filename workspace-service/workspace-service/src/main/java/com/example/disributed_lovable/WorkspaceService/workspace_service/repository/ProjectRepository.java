@@ -16,7 +16,7 @@ public interface ProjectRepository extends JpaRepository<Project,Long>
             select p as project,pm.role as userrole
             from Project p JOIN ProjectMember pm 
             ON p.id=pm.project.id
-            where pm.user.userId = :userId
+            where pm.id.userId = :userId
             AND p.deletedAt is NULL 
             ORDER BY p.updatedAt DESC
             """)

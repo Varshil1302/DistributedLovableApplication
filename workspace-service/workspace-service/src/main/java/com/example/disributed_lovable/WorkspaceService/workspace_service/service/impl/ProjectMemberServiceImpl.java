@@ -19,6 +19,7 @@ import com.example.disributed_lovable.WorkspaceService.workspace_service.service
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +27,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true,level = AccessLevel.PRIVATE)
@@ -56,7 +58,7 @@ public class ProjectMemberServiceImpl implements ProjectMemberService
     {
         Long userId=jwtService.getCurrentUser();
         Project project= projectRepository.findProjectByUserIdAndProjectId(userId,projectId).orElseThrow(()->new RuntimeException("dsvdsfadscas"));
-        Userdto invitee = accountClient.getUserByEmail(request.username());
+        Userdto invitee = accountClient.getUserByEmail(request.username());;
         ProjectMemberId projectMemberId1=new ProjectMemberId(project.getId(),userId);
         ProjectMember projectMember1=memberResponseRepository.findById(projectMemberId1).orElseThrow(()->new ResourceNotFoundException("No Such Records Are Available"));
         if(!projectMember1.getRole().equals(ProjectRole.OWNER))

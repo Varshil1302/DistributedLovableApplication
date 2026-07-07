@@ -11,20 +11,10 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface MemberResponseMapper
 {
-    @Mapping(source = "role",target = "role")
-    @Mapping(source = "user.userId",target = "userId")
-    @Mapping(source = "user.name",target = "name")
-    @Mapping(source = "user.email",target = "email")
+
+    @Mapping(source = "id.userId",target = "userId")
     MemberResponse toMemberResponse(ProjectMember projectMember);
 
-    @Mapping(source = "role",target = "role")
-    @Mapping(source = "user.userId",target = "userId")
-    @Mapping(source = "user.name",target = "name")
-    @Mapping(source = "user.email",target = "email")
+    @Mapping(source = "id.userId",target = "userId")
     List<MemberResponse> toMemberResponse(List<ProjectMember> projectMember);
-
-
-    @Mapping(target = "role", constant = "OWNER")
-    //@JsonIgnore()
-    MemberResponse fromUserOWNER(User user);
 }

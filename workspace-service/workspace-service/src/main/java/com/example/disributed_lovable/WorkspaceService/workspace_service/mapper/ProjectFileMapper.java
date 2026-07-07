@@ -1,7 +1,8 @@
+
 package com.example.disributed_lovable.WorkspaceService.workspace_service.mapper;
 
 
-import com.example.disributed_lovable.WorkspaceService.workspace_service.dto.project.FileNode;
+import com.example.disributed_lovable.CommonLib.common_lib.dto.FileNode;
 import com.example.disributed_lovable.WorkspaceService.workspace_service.entity.ProjectFile;
 import org.mapstruct.Mapper;
 

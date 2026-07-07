@@ -2,9 +2,9 @@ package com.example.disributed_lovable.WorkspaceService.workspace_service.servic
 
 
 import com.example.disributed_lovable.CommonLib.common_lib.error.ResourceNotFoundException;
-import com.example.disributed_lovable.WorkspaceService.workspace_service.dto.project.FileContentResponse;
-import com.example.disributed_lovable.WorkspaceService.workspace_service.dto.project.FileNode;
-import com.example.disributed_lovable.WorkspaceService.workspace_service.dto.project.FileNodeResponse;
+import com.example.disributed_lovable.CommonLib.common_lib.dto.FileContentResponse;
+import com.example.disributed_lovable.CommonLib.common_lib.dto.FileNode;
+import com.example.disributed_lovable.CommonLib.common_lib.dto.FileNodeResponse;
 import com.example.disributed_lovable.WorkspaceService.workspace_service.entity.Project;
 import com.example.disributed_lovable.WorkspaceService.workspace_service.entity.ProjectFile;
 import com.example.disributed_lovable.WorkspaceService.workspace_service.mapper.ProjectFileMapper;

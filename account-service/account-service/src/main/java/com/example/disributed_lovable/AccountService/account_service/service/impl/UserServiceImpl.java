@@ -2,8 +2,11 @@ package com.example.disributed_lovable.AccountService.account_service.service.im
 
 
 import com.example.disributed_lovable.AccountService.account_service.dto.subscription.user.UserProfileResponse;
+import com.example.disributed_lovable.AccountService.account_service.entity.User;
 import com.example.disributed_lovable.AccountService.account_service.repository.UserRepository;
 import com.example.disributed_lovable.AccountService.account_service.service.UserService;
+import com.example.disributed_lovable.CommonLib.common_lib.dto.Userdto;
+import com.example.disributed_lovable.CommonLib.common_lib.error.ResourceNotFoundException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -27,6 +30,14 @@ public class UserServiceImpl implements UserService, UserDetailsService
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
+        User user = userRepository.findByEmail(username)
+                         .orElseThrow(()->new ResourceNotFoundException("User is not found with email:: "+username));
+
+        return new Userdto(
+                user.getUserId(),
+                user.getEmail(),
+                user.getName(),
+                user.getPasswordHash()
+        );
     }
 }

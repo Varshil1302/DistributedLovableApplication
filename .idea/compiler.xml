@@ -12,32 +12,15 @@
         <module name="config-server" />
       </profile>
       <profile name="Annotation profile for common-lib" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
-        </processorPath>
-        <module name="workspace-service" />
-      </profile>
-      <profile name="Annotation profile for common-lib.main" enabled="true">
         <sourceOutputDir name="../generated-sources/annotations" />
         <sourceTestOutputDir name="../generated-test-sources/test-annotations" />
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
         </processorPath>
         <module name="common-lib.main" />
-      </profile>
-      <profile name="Annotation profile for common-lib.test" enabled="true">
-        <sourceOutputDir name="../generated-sources/annotations" />
-        <sourceTestOutputDir name="../generated-test-sources/test-annotations" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
-        </processorPath>
         <module name="common-lib.test" />
       </profile>
-      <profile name="Annotation profile for account-service" enabled="true">
+      <profile name="Annotation profile for workspace-service" enabled="true">
         <sourceOutputDir name="../generated-sources/annotations" />
         <sourceTestOutputDir name="../generated-test-sources/test-annotations" />
         <processorPath useClasspath="false">
@@ -45,13 +28,20 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.0/mapstruct-processor-1.6.0.jar" />
         </processorPath>
+        <module name="IntelligenceService.test" />
+        <module name="workspace-service.test" />
         <module name="account-service.main" />
+        <module name="workspace-service.main" />
+        <module name="IntelligenceService.main" />
         <module name="account-service.test" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="IntelligenceService" options="-parameters" />
+      <module name="IntelligenceService.main" options="-parameters" />
+      <module name="IntelligenceService.test" options="-parameters" />
       <module name="account-service" options="-parameters" />
       <module name="account-service.main" options="-parameters" />
       <module name="account-service.test" options="-parameters" />
@@ -62,6 +52,8 @@
       <module name="config-server" options="-parameters" />
       <module name="eureka-service" options="-parameters" />
       <module name="workspace-service" options="-parameters" />
+      <module name="workspace-service.main" options="-parameters" />
+      <module name="workspace-service.test" options="-parameters" />
     </option>
   </component>
 </project>
