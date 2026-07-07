@@ -1,8 +1,8 @@
 package com.example.disributed_lovable.WorkspaceService.workspace_service.service;
 
 
-import com.example.disributed_lovable.WorkspaceService.workspace_service.dto.project.FileContentResponse;
-import com.example.disributed_lovable.WorkspaceService.workspace_service.dto.project.FileNodeResponse;
+import com.example.disributed_lovable.CommonLib.common_lib.dto.FileContentResponse;
+import com.example.disributed_lovable.CommonLib.common_lib.dto.FileNodeResponse;
 
 public interface ProjectFileService
 {

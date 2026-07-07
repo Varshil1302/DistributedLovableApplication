@@ -29,7 +29,7 @@ public class JwtService
         return Keys.hmacShaKeyFor(secreateKey.getBytes(StandardCharsets.UTF_8));
     }
 
-    public  String generateJWT(Userdto user)
+    public String generateJWT(Userdto user)
     {
 
         String token = Jwts.builder()

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/projects/{id}/members")
+@RequestMapping("/projects/{id}/members")
 @RequiredArgsConstructor
 public class ProjectMemberController
 {
