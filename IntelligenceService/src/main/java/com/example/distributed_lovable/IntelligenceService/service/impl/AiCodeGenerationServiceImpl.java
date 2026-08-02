@@ -1,10 +1,9 @@
 package com.example.distributed_lovable.IntelligenceService.service.impl;
 
 
-import com.example.disributed_lovable.CommonLib.common_lib.enums.ChatEventType;
-import com.example.disributed_lovable.CommonLib.common_lib.enums.MessageRole;
-import com.example.disributed_lovable.CommonLib.common_lib.error.ResourceNotFoundException;
-import com.example.disributed_lovable.CommonLib.common_lib.security.JwtService;
+import com.example.distributed_lovable.CommonLib.common_lib.enums.ChatEventType;
+import com.example.distributed_lovable.CommonLib.common_lib.enums.MessageRole;
+import com.example.distributed_lovable.CommonLib.common_lib.security.JwtService;
 import com.example.distributed_lovable.IntelligenceService.client.WorkspaceClient;
 import com.example.distributed_lovable.IntelligenceService.dto.chat.StreamResponse;
 import com.example.distributed_lovable.IntelligenceService.entity.ChatEvent;

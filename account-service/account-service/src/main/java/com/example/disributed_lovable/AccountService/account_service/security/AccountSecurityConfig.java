@@ -1,7 +1,6 @@
 package com.example.disributed_lovable.AccountService.account_service.security;
 
-import com.example.disributed_lovable.CommonLib.common_lib.security.JwtAuthFilter;
-import jakarta.servlet.DispatcherType;
+import com.example.distributed_lovable.CommonLib.common_lib.security.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

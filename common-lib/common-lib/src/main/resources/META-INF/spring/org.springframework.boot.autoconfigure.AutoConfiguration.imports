@@ -1,2 +1,2 @@
-com.example.disributed_lovable.CommonLib.common_lib.error.SharedErrorAutoConfiguration
-com.example.disributed_lovable.CommonLib.common_lib.security.SharedSecurityAutoConfiguration
+error.com.example.distributed_lovable.CommonLib.common_lib.SharedErrorAutoConfiguration
+security.com.example.distributed_lovable.CommonLib.common_lib.SharedSecurityAutoConfiguration

@@ -2,9 +2,8 @@ package com.example.disributed_lovable.AccountService.account_service.controller
 
 import com.example.disributed_lovable.AccountService.account_service.mapper.UserMapper;
 import com.example.disributed_lovable.AccountService.account_service.repository.UserRepository;
-import com.example.disributed_lovable.CommonLib.common_lib.dto.Userdto;
-import com.example.disributed_lovable.CommonLib.common_lib.error.ResourceNotFoundException;
-import lombok.Getter;
+import com.example.distributed_lovable.CommonLib.common_lib.dto.Userdto;
+import com.example.distributed_lovable.CommonLib.common_lib.error.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;

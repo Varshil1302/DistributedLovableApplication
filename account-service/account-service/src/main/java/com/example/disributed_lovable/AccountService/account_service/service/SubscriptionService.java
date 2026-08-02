@@ -3,7 +3,7 @@ package com.example.disributed_lovable.AccountService.account_service.service;
 
 
 import com.example.disributed_lovable.AccountService.account_service.dto.subscription.SubscriptionResponse;
-import com.example.disributed_lovable.CommonLib.common_lib.enums.SubscriptionStatus;
+import com.example.distributed_lovable.CommonLib.common_lib.enums.SubscriptionStatus;
 
 import java.time.Instant;
 
