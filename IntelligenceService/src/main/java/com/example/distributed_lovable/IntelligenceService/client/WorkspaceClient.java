@@ -1,8 +1,7 @@
 package com.example.distributed_lovable.IntelligenceService.client;
 
-import com.example.disributed_lovable.CommonLib.common_lib.dto.FileContentResponse;
-import com.example.disributed_lovable.CommonLib.common_lib.dto.FileNodeResponse;
-import com.example.disributed_lovable.CommonLib.common_lib.security.SharedSecurityAutoConfiguration;
+import com.example.distributed_lovable.CommonLib.common_lib.dto.FileContentResponse;
+import com.example.distributed_lovable.CommonLib.common_lib.dto.FileNodeResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

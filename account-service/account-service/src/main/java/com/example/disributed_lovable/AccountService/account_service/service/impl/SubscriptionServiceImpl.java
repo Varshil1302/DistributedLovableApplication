@@ -10,8 +10,8 @@ import com.example.disributed_lovable.AccountService.account_service.repository.
 import com.example.disributed_lovable.AccountService.account_service.repository.SubscriptionRepository;
 import com.example.disributed_lovable.AccountService.account_service.repository.UserRepository;
 import com.example.disributed_lovable.AccountService.account_service.service.SubscriptionService;
-import com.example.disributed_lovable.CommonLib.common_lib.enums.SubscriptionStatus;
-import com.example.disributed_lovable.CommonLib.common_lib.security.JwtService;
+import com.example.distributed_lovable.CommonLib.common_lib.enums.SubscriptionStatus;
+import com.example.distributed_lovable.CommonLib.common_lib.security.JwtService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -1,7 +1,7 @@
 package com.example.distributed_lovable.IntelligenceService.llm;
 
 
-import com.example.disributed_lovable.CommonLib.common_lib.enums.ChatEventType;
+import com.example.distributed_lovable.CommonLib.common_lib.enums.ChatEventType;
 import com.example.distributed_lovable.IntelligenceService.entity.ChatEvent;
 import com.example.distributed_lovable.IntelligenceService.entity.ChatMessage;
 import lombok.extern.slf4j.Slf4j;

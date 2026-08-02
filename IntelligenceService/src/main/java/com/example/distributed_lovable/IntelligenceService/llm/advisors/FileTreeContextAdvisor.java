@@ -1,7 +1,7 @@
 package com.example.distributed_lovable.IntelligenceService.llm.advisors;
 
 
-import com.example.disributed_lovable.CommonLib.common_lib.dto.FileNode;
+import com.example.distributed_lovable.CommonLib.common_lib.dto.FileNode;
 import com.example.distributed_lovable.IntelligenceService.client.WorkspaceClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -2,7 +2,7 @@ package com.example.distributed_lovable.IntelligenceService.dto.chat;
 
 
 
-import com.example.disributed_lovable.CommonLib.common_lib.enums.MessageRole;
+import com.example.distributed_lovable.CommonLib.common_lib.enums.MessageRole;
 import com.example.distributed_lovable.IntelligenceService.entity.ChatSession;
 
 import java.time.Instant;

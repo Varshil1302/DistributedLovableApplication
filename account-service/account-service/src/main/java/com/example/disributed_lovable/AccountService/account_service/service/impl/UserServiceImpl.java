@@ -5,8 +5,8 @@ import com.example.disributed_lovable.AccountService.account_service.dto.subscri
 import com.example.disributed_lovable.AccountService.account_service.entity.User;
 import com.example.disributed_lovable.AccountService.account_service.repository.UserRepository;
 import com.example.disributed_lovable.AccountService.account_service.service.UserService;
-import com.example.disributed_lovable.CommonLib.common_lib.dto.Userdto;
-import com.example.disributed_lovable.CommonLib.common_lib.error.ResourceNotFoundException;
+import com.example.distributed_lovable.CommonLib.common_lib.dto.Userdto;
+import com.example.distributed_lovable.CommonLib.common_lib.error.ResourceNotFoundException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

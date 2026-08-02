@@ -1,7 +1,7 @@
 package com.example.distributed_lovable.IntelligenceService.service.impl;
 
 
-import com.example.disributed_lovable.CommonLib.common_lib.security.JwtService;
+import com.example.distributed_lovable.CommonLib.common_lib.security.JwtService;
 import com.example.distributed_lovable.IntelligenceService.dto.chat.ChatResponse;
 import com.example.distributed_lovable.IntelligenceService.entity.ChatMessage;
 import com.example.distributed_lovable.IntelligenceService.entity.ChatSession;

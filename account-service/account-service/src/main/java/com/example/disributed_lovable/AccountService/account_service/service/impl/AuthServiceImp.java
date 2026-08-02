@@ -9,8 +9,8 @@ import com.example.disributed_lovable.AccountService.account_service.entity.User
 import com.example.disributed_lovable.AccountService.account_service.mapper.UserMapper;
 import com.example.disributed_lovable.AccountService.account_service.repository.UserRepository;
 import com.example.disributed_lovable.AccountService.account_service.service.AuthService;
-import com.example.disributed_lovable.CommonLib.common_lib.error.BadRequestException;
-import com.example.disributed_lovable.CommonLib.common_lib.security.JwtService;
+import com.example.distributed_lovable.CommonLib.common_lib.error.BadRequestException;
+import com.example.distributed_lovable.CommonLib.common_lib.security.JwtService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

@@ -10,10 +10,10 @@ import com.example.disributed_lovable.AccountService.account_service.repository.
 import com.example.disributed_lovable.AccountService.account_service.repository.UserRepository;
 import com.example.disributed_lovable.AccountService.account_service.service.PaymentProcessor;
 import com.example.disributed_lovable.AccountService.account_service.service.SubscriptionService;
-import com.example.disributed_lovable.CommonLib.common_lib.enums.SubscriptionStatus;
-import com.example.disributed_lovable.CommonLib.common_lib.error.BadRequestException;
-import com.example.disributed_lovable.CommonLib.common_lib.error.ResourceNotFoundException;
-import com.example.disributed_lovable.CommonLib.common_lib.security.JwtService;
+import com.example.distributed_lovable.CommonLib.common_lib.enums.SubscriptionStatus;
+import com.example.distributed_lovable.CommonLib.common_lib.error.BadRequestException;
+import com.example.distributed_lovable.CommonLib.common_lib.error.ResourceNotFoundException;
+import com.example.distributed_lovable.CommonLib.common_lib.security.JwtService;
 import com.stripe.exception.StripeException;
 import com.stripe.model.*;
 
