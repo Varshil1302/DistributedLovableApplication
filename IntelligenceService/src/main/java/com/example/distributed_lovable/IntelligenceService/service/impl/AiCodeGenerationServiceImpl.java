@@ -3,6 +3,7 @@ package com.example.distributed_lovable.IntelligenceService.service.impl;
 
 import com.example.distributed_lovable.CommonLib.common_lib.enums.ChatEventType;
 import com.example.distributed_lovable.CommonLib.common_lib.enums.MessageRole;
+import com.example.distributed_lovable.CommonLib.common_lib.event.FileStoredRequestEvent;
 import com.example.distributed_lovable.CommonLib.common_lib.security.JwtService;
 import com.example.distributed_lovable.IntelligenceService.client.WorkspaceClient;
 import com.example.distributed_lovable.IntelligenceService.dto.chat.StreamResponse;
@@ -22,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.metadata.Usage;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -49,6 +51,7 @@ public class AiCodeGenerationServiceImpl implements AiCodeGenerationService
     private final ChatSessionRepository chatSessionRepository;
     private final ChatMessageRepository chatMessageRepository;
     private final ChatEventRepository chatEventRepository;
+    private final KafkaTemplate<String,Object> kafkaTemplate;
 
     private static final Pattern FILE_TAG_PATTERN = Pattern.compile("<file path=\"([^\"]+)\">(.*?)</file>",Pattern.DOTALL);
 
@@ -119,6 +122,9 @@ public class AiCodeGenerationServiceImpl implements AiCodeGenerationService
 
     private void finalizeChats(String userMessage , ChatSession chatSession, String fullText, Long duration, Usage usage)
     {
+
+          Long projectId = chatSession.getChatSessionId().getProjectId();
+          Long userId = chatSession.getChatSessionId().getUserId();
            //Save the User Message.
            chatMessageRepository.save(
                    ChatMessage.builder()
@@ -149,6 +155,14 @@ public class AiCodeGenerationServiceImpl implements AiCodeGenerationService
         chatEventList.stream()
                 .filter(event->event.getChatEventType()== ChatEventType.FILE_EDIT)
                 .forEach(event->{
+
+                    FileStoredRequestEvent fileStoredRequestEvent = FileStoredRequestEvent.builder()
+                            .sagaId(1L).projectId(projectId).filePath(event.getFilePath())
+                            .content(event.getContent())
+                            .build();
+                    log.info("Storage request event sent: {}",event.getFilePath());
+                    kafkaTemplate.send("file-storage-request-event","project-"+projectId,fileStoredRequestEvent);
+
                    // projectFileService.saveFile(chatSession.getProject().getId(),event.getFilePath(),event.getContent())
                         });
         chatEventRepository.saveAll(chatEventList);
