@@ -1,16 +1,14 @@
 package com.example.distributed_lovable.IntelligenceService.llm;
 
 
+import com.example.distributed_lovable.CommonLib.common_lib.enums.ChatEventStatus;
 import com.example.distributed_lovable.CommonLib.common_lib.enums.ChatEventType;
 import com.example.distributed_lovable.IntelligenceService.entity.ChatEvent;
 import com.example.distributed_lovable.IntelligenceService.entity.ChatMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -41,15 +39,19 @@ public class LLMResponseParser
             String content = matcher.group(4).trim();
 
             Map<String,String> attrMap = extractMap(attributes);
+            String sagaId = UUID.randomUUID().toString();
 
             ChatEvent.ChatEventBuilder chatEventBuilder = ChatEvent.builder()
                                                       .chatMessage(chatMessage)
-                    .content(content).sequenceOrder(orderCounter++);
+                                                       .sagaId(sagaId)
+                                                      .chatEventStatus(ChatEventStatus.CONFIRMED)
+                                                      .content(content).sequenceOrder(orderCounter++);
             switch (tagName)
             {
                 case "message" -> chatEventBuilder.chatEventType(ChatEventType.MESSAGE);
                 case "file" -> {
                     chatEventBuilder.chatEventType(ChatEventType.FILE_EDIT);
+                    chatEventBuilder.chatEventStatus(ChatEventStatus.PENDING);
                     chatEventBuilder.filePath(attrMap.get("path"));
                 }
                 case "tool" ->{

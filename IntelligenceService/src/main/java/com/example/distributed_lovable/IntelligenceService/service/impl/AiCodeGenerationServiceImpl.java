@@ -1,6 +1,7 @@
 package com.example.distributed_lovable.IntelligenceService.service.impl;
 
 
+import com.example.distributed_lovable.CommonLib.common_lib.enums.ChatEventStatus;
 import com.example.distributed_lovable.CommonLib.common_lib.enums.ChatEventType;
 import com.example.distributed_lovable.CommonLib.common_lib.enums.MessageRole;
 import com.example.distributed_lovable.CommonLib.common_lib.event.FileStoredRequestEvent;
@@ -33,6 +34,7 @@ import reactor.core.scheduler.Schedulers;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -150,14 +152,17 @@ public class AiCodeGenerationServiceImpl implements AiCodeGenerationService
                                     .chatMessage(assistantchatMessage)
                                     .sequenceOrder(0)
                                     .content("Thought For "+duration+" sec.")
+                                    .sagaId("")
+                                    .chatEventStatus(ChatEventStatus.CONFIRMED)
                                     .build());
 
         chatEventList.stream()
                 .filter(event->event.getChatEventType()== ChatEventType.FILE_EDIT)
                 .forEach(event->{
-
+                   String sagaId = UUID.randomUUID().toString();
+                   event.setSagaId(sagaId);
                     FileStoredRequestEvent fileStoredRequestEvent = FileStoredRequestEvent.builder()
-                            .sagaId(1L).projectId(projectId).filePath(event.getFilePath())
+                            .sagaId(sagaId).projectId(projectId).filePath(event.getFilePath())
                             .content(event.getContent())
                             .build();
                     log.info("Storage request event sent: {}",event.getFilePath());

@@ -3,11 +3,10 @@ package com.example.distributed_lovable.CommonLib.common_lib.event;
 import lombok.Builder;
 
 @Builder
-public record FileStoredRequestEvent(
-        Long projectId,
+public record FileStoreResponseEvent(
         String sagaId,
-        String filePath,
-        String content,
-        Long userId
+        boolean success,
+        String errorMessage,
+        Long projectId
 ) {
 }
