@@ -29,8 +29,8 @@ public class IntelligenceSecurityConfig
                 .csrf(csrfConfig->csrfConfig.disable())
                 .sessionManagement(sessionConfig->sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth->auth
-                        .dispatcherTypeMatchers(DispatcherType.ASYNC).permitAll()
-                        .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()
+                        .dispatcherTypeMatchers(DispatcherType.ASYNC).permitAll()   //allows Async request dispached in servlet container(No need authentication for Async process) mostly in code generation time
+                        .dispatcherTypeMatchers(DispatcherType.ERROR).permitAll()   //allows Error request dispatched in servlet container.
                         .requestMatchers("/internal/**","/swagger-ui/**","/swagger-ui.html",
                                 "/v3/api-docs/**","/error/**").permitAll()
                         .requestMatchers("/chat/**","/usage/**").authenticated()
