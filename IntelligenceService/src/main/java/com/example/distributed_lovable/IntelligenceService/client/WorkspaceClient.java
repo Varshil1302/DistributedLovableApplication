@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "workspace-service",path = "/workspace")
+@FeignClient(name = "workspace-service",path = "/workspace", url="${WORKSPACE_SERVICE_URI:}")
 public interface WorkspaceClient
 {
 
@@ -16,6 +16,6 @@ public interface WorkspaceClient
     public FileContentResponse getFileContent(@RequestHeader("Authorization") String authorization, @PathVariable Long projectId, @RequestParam String path);
 
     @GetMapping("/internal/v1/projects/{projectId}/files")
-    public FileNodeResponse getFileTree(@RequestHeader("Authorization") String authorization,@PathVariable Long projectId);
+    public FileNodeResponse getFileTree(@RequestHeader("Authorization") String authorization, @PathVariable Long projectId);
 
 }

@@ -28,7 +28,7 @@ public class WorkSpaceSecurityConfig
                 .csrf(csrfConfig->csrfConfig.disable())
                 .sessionManagement(sessionConfig->sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("/internal/**","/swagger-ui/**","/swagger-ui.html",
+                        .requestMatchers("/internal/**","/actuator/**","/swagger-ui/**","/swagger-ui.html",
                                 "/v3/api-docs/**").permitAll()
                         .requestMatchers("/projects/**").authenticated()
                         .anyRequest().authenticated()
