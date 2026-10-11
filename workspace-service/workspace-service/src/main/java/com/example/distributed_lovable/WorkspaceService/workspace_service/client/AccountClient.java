@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "account-service" ,path = "/account")
+@FeignClient(name = "account-service" ,path = "/account", url="${ACCOUNT_SERVICE_URI:}")
 public interface AccountClient
 {
     @GetMapping("/internal/v1/user/{userId}")

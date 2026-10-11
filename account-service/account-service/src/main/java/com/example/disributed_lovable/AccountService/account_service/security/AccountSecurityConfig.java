@@ -28,7 +28,7 @@ public class AccountSecurityConfig
                 .csrf(csrfConfig->csrfConfig.disable())
                 .sessionManagement(sessionConfig->sessionConfig.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth->auth
-                        .requestMatchers("/auth/**","/internal/**","/webhooks/**","/swagger-ui/**","/swagger-ui.html",
+                        .requestMatchers("/auth/**","/internal/**","/actuator/**","/webhooks/**","/swagger-ui/**","/swagger-ui.html",
                                 "/v3/api-docs/**").permitAll()
                         .requestMatchers("/api/projects/**").authenticated()
                         .anyRequest().authenticated()
